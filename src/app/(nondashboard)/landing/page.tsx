@@ -57,6 +57,36 @@ function Landing() {
           ))}
         </div>
       </motion.div>
+
+      {/* this animation only work once when user enter the page */}
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ amount: 0.3, once: true }}
+        className="landing__featured"
+      >
+        <h2 className="landing__featured-title">Featured Courses</h2>
+        <p className="landing__featured-description">
+          These are the courses that are currently trending and popular.
+        </p>
+        <div className="landing__tags">
+          {[
+            "web development",
+            "enterprise IT",
+            "react nextjs",
+            "fullstack development",
+            "frontend development",
+            "backend development",
+          ].map((tag, index) => (
+            <span key={index} className="landing__tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="landing__courses">{/* COURSES DISPLAY HERE */}</div>
+      </motion.div>
     </motion.div>
   );
 }
